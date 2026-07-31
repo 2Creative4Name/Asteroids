@@ -46,6 +46,12 @@ def main() -> None:
                 log_event("player_hit")
                 print("Game Over!")
                 sys.exit()
+            
+            for shot in shots:
+                if asteroid.collision(shot):
+                    log_event("asteroid_shot")
+                    pygame.sprite.Sprite.kill(shot)
+                    asteroid.split()
         
         screen.fill("black")
         
